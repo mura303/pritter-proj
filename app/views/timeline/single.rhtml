@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Pritter / <%= @tweet.profile.jid %></title>
+  <%= stylesheet_link_tag 'page'%>
+</head>
+<body>
+
+<div class="content">
+
+  <div class="latest_tweet;"><%= @tweet.content %>
+  <p><%= link_to( timediff_str(@tweet.created_on), {:action=>:single,:id=>@tweet.id} ) %></p>
+  </div>
+
+</div>
+  <a href="/<%= @tweet.profile.id %>">
+  <%= image_tag("/images/profile/#{@tweet.profile.id}.jpg", :width=>"64", :style=>"float:left;") %>
+  <p><%= @tweet.profile.jid %></p>
+  </a>
+
+</body>
+</html>

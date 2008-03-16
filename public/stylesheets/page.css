@@ -1,0 +1,114 @@
+body {
+margin:0pt auto;
+padding:15px 0pt;
+width:750px;
+background:#9ae4e8
+}
+
+a
+{
+text-decoration: none;
+color: blue;
+}
+
+a:hover
+{
+text-decoration: underline;
+}
+
+a img
+{
+padding:0px;
+margin:0pt;
+padding:0pt;
+border:0pt none;
+}
+
+h1
+{
+font-size:3em;
+color:white;
+}
+
+td
+{
+border-bottom:1px solid #808080;
+}
+
+table
+{
+margin:20px;
+}
+
+#side {
+background:#e0ff92 none repeat scroll 0%;
+border: 1px solid #87bc44;
+float:right;
+line-height:1.2;
+margin-bottom:10px;
+margin-top:10px;
+padding:12px 10px;
+width:166px;
+}
+
+#side div.people {
+border-bottom:1px solid #87bc44;
+margin-bottom:10px;
+font-size:1em;
+font-weight:bold;
+padding:0pt 0pt 2px;
+}
+
+.content{
+background:#FFF;
+margin-top:0px;
+padding:15px;
+width:500px;
+}
+
+.pagination_links {
+border:1px solid #CECECE;
+margin:1px;
+padding:4px 15px;
+}
+
+.tweet_time
+{
+font-size:0.8em;
+}
+
+#about_pritter{
+text-align:right;
+color:white;
+}
+
+
+#footer{
+background:#FFF;
+margin-top:10px;
+width:500px;
+padding:4px 15px;
+text-align:center;
+font-size:0.8em;
+}
+
+#newer_older
+{
+float:right;
+}
+
+.latest_tweet {
+display:block;
+font-size:2.12em;
+line-height:1.2em;
+padding:0pt;
+margin:5px 0pt;
+text-align:left;
+font-size:0.75em;
+font-size-adjust:none;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+line-height:1.5;
+text-align:center;
+}

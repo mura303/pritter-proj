@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Pritter</title>
+  <%= stylesheet_link_tag 'page'%>
+</head>
+<body>
+  <h1><%= link_to( "Pritter", {:action=>:anybody}, :style=>'color:white;' ) %></h1>
+  <div id="about_pritter"><%= about_pritter %></div>
+
+<div id="side">
+  <div class="people">People</div>
+  <% @profiles.each do |profile| %>
+  <a href="/<%= profile.id %>"><img alt="#{profile.jid}" src="/images/profile/<%= profile.id %>.jpg" width="24" /></a>
+  <% end %>
+</div>
+
+<div class="content">
+  <table>
+	<% @tweets.each do |tweet| %>
+	<tr>
+	  <td>
+		<a href="/<%= tweet.profile.id %>">
+		  <%= image_tag("/images/profile/#{tweet.profile.id}.jpg", :width=>"48") %>
+		  <strong><%= tweet.name %></strong>
+		</a>
+	  </td>
+	  <td>
+		<%= tweet.content %>
+		<%= link_to( timediff_str(tweet.created_on), {:action=>:single,:id=>tweet.id},:class=>'tweet_time' ) %>
+	  </td>
+	</tr>
+	<% end %>
+  </table>
+
+<div id="newer_older">
+  <%= link_to( "&#171; Newer", { :page => @pages.current.previous}, :class=>'pagination_links'  ) if @pages.current.previous %>
+  <%= link_to( "Older &#187;", { :page => @pages.current.next}, :class=>'pagination_links' ) if @pages.current.next %>
+</div>
+
+  <%= link_to( "RSS", { :action=>'rss', :id=>@profileid }, :class=>'pagination_links' ) %>
+
+</div>
+
+<div id="footer">
+  &copy; 2008 <a href="https://twitter.com/mura303">Daisuke Nakamura</a>, This software is released under <a href="http://www.sonic-bloom.com/pcl.html">PCL</a>.
+</div>
+
+
+
+</body>
+</html>

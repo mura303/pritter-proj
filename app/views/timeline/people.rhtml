@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Pritter / <%= @profile.jid %></title>
+  <%= stylesheet_link_tag 'page'%>
+</head>
+<body>
+  <h1>Pritter</h1>
+  <div id="about_pritter"><%= about_pritter %></div>
+  <%= link_to( "Back to Public Timeline", {:action=>:anybody}, :style=>'color:white;' ) %>
+
+<div id="side">
+  <div class="people">About</div>
+  <p>Name: <%= @profile.fullname %></p>
+  <p>URL: <%= @profile.url %></p>
+  <p>Updates: <%= @profile.tweetcount %></p>
+</div>
+
+<div class="content">
+  <%= image_tag("/images/profile/#{@profile.id}.jpg", :size=>"64x64", :style=>"float:left;") %>
+  <p><%= @profile.jid %></p>
+  <div class="latest_tweet;"><%= @latest_tweet.content %></div>
+  <p><%= link_to(timediff_str(@latest_tweet.created_on),{:action=>:single,:id=>@latest_tweet.id}) %></p>
+  <hr/>
+  <br clear="left"/>
+
+  <table>
+	<% @tweets.each do |tweet| %>
+	<%  next if tweet.id == @latest_tweet.id %>
+	<tr>
+	  <td>
+		<%= tweet.content %>
+		<%= link_to(timediff_str(tweet.created_on),{:action=>:single,:id=>tweet.id},:class=>'tweet_time') %>
+	  </td>
+	</tr>
+	<% end %>
+  </table>
+
+<div id="newer_older">
+  <%= link_to( "&#171; Newer", { :page => @pages.current.previous}, :class=>'pagination_links'  ) if @pages.current.previous %>
+  <%= link_to( "Older &#187;", { :page => @pages.current.next}, :class=>'pagination_links' ) if @pages.current.next %>
+</div>
+
+  <%= link_to( "RSS", { :action=>'rss', :id=>@profileid }, :class=>'pagination_links' ) %>
+
+</div>
+
+<div id="footer">
+  &copy; 2008 <a href="https://twitter.com/mura303">Daisuke Nakamura</a>, This software is released under <a href="http://www.sonic-bloom.com/pcl.html">PCL</a>.
+</div>
+
+
+
+</body>
+</html>
