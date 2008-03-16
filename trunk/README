@@ -1,0 +1,20 @@
+== What is Pritter?
+
+Pritter is a Twitter clone for private networks.
+
+
+== How to use
+
+1. deploy this as a normal Rails application.
+2. run messaging agent with command: script/runner 'Messenger::runreceiver("agentjid@servername", "password")'
+
+
+== License
+
+This software is released under PCL.
+See http://www.sonic-bloom.com/pcl.html for more information.
+
+
+== Release Note
+
+2008-01-16: initial relase
