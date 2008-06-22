@@ -9,6 +9,9 @@ module TimelineHelper
   end    
 
   def timediff_str( target )
+
+    return target.strftime( "%I:%M %p %B %d, %Y" ) if Time.now.day != target.day # always absolute for another day
+
     diff = Time.now - target
 
     if diff < 1.minute
