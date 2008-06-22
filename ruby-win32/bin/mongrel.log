@@ -1,0 +1,7 @@
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with production environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  INT => stop (no restart).
+** Mongrel 1.1.2 available at 0.0.0.0:3000
+** Use CTRL-C to stop.

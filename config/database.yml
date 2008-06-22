@@ -23,8 +23,5 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: mysql
-  database: xmpptwitter_production
-  username: root
-  password: 
-  socket: /var/lib/mysql/mysql.sock
+  adapter: sqlite3
+  database: db/production.sqlite3
