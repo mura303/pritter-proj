@@ -21,6 +21,25 @@ class TimelineController < ApplicationController
     render_rss( params[:id] )
   end
 
+  def update
+
+    dummy_jid = 'nanashi'
+    message = params[:status] || 'no status content'
+        
+    profile = Profile.find_or_create_by_jid( dummy_jid )
+
+    @tweet = Tweet.create!( :name => dummy_jid, :content => Tweet.url2link_of_body(message), :profile => profile )
+    profile.tweetcount += 1
+
+    FileUtils.copy_file( "#{RAILS_ROOT}/public/images/profile/default.jpg",
+    "#{RAILS_ROOT}/public/images/profile/#{profile.id}.jpg" )
+
+    profile.save!
+
+    render_text message
+    
+  end
+
   def render_rss( id )
     require 'rss'
     require 'cgi'

@@ -24,6 +24,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':id', :controller => "timeline", :action => 'people'
   map.connect ':id.rss', :controller => "timeline", :action => 'rss'
   map.connect 'single/:id', :controller=>'timeline', :action=>'single'
+  map.connect 'statuses/update.:format', :controller=>'timeline', :action=>'update'
 #  map.connect ':controller/:action/:id.:format'
 #  map.connect ':controller/:action/:id'
 end
